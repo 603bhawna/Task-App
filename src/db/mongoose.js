@@ -1,7 +1,7 @@
-const mongoose = require('mongoose')
-
-mongoose.connect(process.env.MONGODB_URL, {
+const mongoose = require('mongoose');
+const url=process.env.MONGODB_URL;
+mongoose.connect(url, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useFindAndModify: false
-})
+});

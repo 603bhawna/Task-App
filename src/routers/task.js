@@ -34,6 +34,7 @@ router.get('/tasks', auth, async (req, res) => {
     }
 
     try {
+        //----------------------------------------------------------
         await req.user.populate({
             path: 'tasks',
             match,
@@ -92,7 +93,6 @@ router.patch('/tasks/:id', auth, async (req, res) => {
 router.delete('/tasks/:id', auth, async (req, res) => {
     try {
         const task = await Task.findOneAndDelete({ _id: req.params.id, owner: req.user._id })
-
         if (!task) {
             res.status(404).send()
         }
